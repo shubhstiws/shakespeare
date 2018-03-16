@@ -1,0 +1,47 @@
+---
+title: "Julius Caesar sentiment analysis"
+author: "Shubhankar Tiwari"
+date: "`r Sys.Date()`"
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+![Brutus's Wordcloud](D:/Google Drive/Spring 2018/Courses/DataViz/Shakespeare/Brutus' wordcloud.png)
+
+## Context
+
+On the 'ides of march' I decided to analyse the sentiment of lines by Brutus and Cassius. The data set was provided by Kaggle and a lot of analysis has already been done however I could not find anything on the change in sentiment as the play progresses. In the original play we see a lot of change in the emotions of the actors and the way they deliver their dialogues while internally meaning something completely different, below is an excerpt from Antony's speech which is a perfect example of this:
+
+_"The noble Brutus
+Hath told you Caesar was ambitious:
+If it were so, it was a grievous fault,
+And grievously hath Caesar answer'd it.
+Here, under leave of Brutus and the rest--
+For Brutus is an honourable man;
+So are they all, all honourable men"_
+
+Its comparatively easy for humans to understand this 'double meaning' or ambiguity but for a computer it is not. I started with this analysis in mind, to see if the current sentiment analysis technique could identify the increasing negative sentiment.
+
+## Data preprocessing
+
+I used the data from Kaggle (source below). There were a lot of pre processing steps involved mostly around filtering the data and handling NA vales. I did not spend much time in text processing as that was not my goal. For now all functions are set up to work only with the play 'Julius Caesar' but they can be easily modified to work for any play.
+
+## Visualization
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KXFe3zCz5ig" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+Most of the lines are classified as neutral sentiment. The algorithm cannot understand the hidden meaning quite well and fails to classify more lines into positive or negative sentiments. However the next steps can be to use this for other characters and even other plays just to confirm if this works well for plays that have a linear story line.
+
+I also focussed more on a more smoother animation inspite of less data (5 acts). A smoother animation requires a high frame rate which needs more frames. This was originally not possible with around ~3 scenes per act, hence resulting in ~15 frames, but I interpolated data by lines to show the gradual increase instead of inconsistent jumps in the visual. A lot of code is dedicated to that.
+
+## Sources
+
+1. [Github](https://github.com/shubhstiws/shakespeare)
+
+2. [Data](https://www.kaggle.com/kingburrito666/shakespeare-plays)
